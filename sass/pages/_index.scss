@@ -4,13 +4,13 @@
 
 
     &__header h1{
-        background-image: url(../../img/svg/descuentos.jpg);
+        /* background-image: url(../../img/svg/descuentos.jpg); */
         background-color: $colorBase;
-        height: 85vh;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items:center;
-        padding: 3%;
+        padding: 0;
 
     
        /*  width: 250%;

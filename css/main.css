@@ -238,13 +238,13 @@ body {
   background-color: #fff8f8;
 }
 .section-cards__header h1 {
-  background-image: url(../../img/svg/descuentos.jpg);
+  /* background-image: url(../../img/svg/descuentos.jpg); */
   background-color: #fff8f8;
-  height: 85vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3%;
+  padding: 0;
   /*  width: 250%;
    height: 50%;
    display: flex;
