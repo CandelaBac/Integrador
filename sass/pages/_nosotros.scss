@@ -1,0 +1,171 @@
+.search-bar {
+    &__logo-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.nosotros-section{
+
+     /*----- NOSOTROS HEADER -----*/
+
+     
+    &__header h1{
+        font-size: 20px;
+        color:$colorBase;
+        background-color: $colorCuaternario;
+        letter-spacing: 5px;
+        height: 6vh;
+        /* background-image: url(../../img/otras-img/nosotros-img.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3%; 
+    }
+
+    &__header p {
+        font-size: 22px;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+    
+
+    @media (max-width: 768px) {
+        &__header h1{
+            font-size: 30px;
+            height: 30vh;
+        }
+
+        &__header p {
+            font-size: 18px;
+            padding: 1em;
+        }
+    
+    }
+
+    /*----- NOSOTROS MISIÓN -----*/
+
+    &__mision{
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 3%;
+        color: $colorTipografia;
+    }
+
+    &__mision-texto{
+        font-family: 'Montserrat', sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &__mision-texto h2{
+        margin-right: 550px;
+        color: $colorTipografia;
+        font-size: 30px;
+        padding: 10px;
+    }
+
+    &__mision-texto p{
+        font-size: 20px;
+        width:100vw ;
+        margin-left: 10px;
+    }
+  
+    @media (max-width: 768px) {
+        &__mision{
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+    
+        &__mision-texto h2{
+            text-align: center; 
+            font-size: 40px;
+        }
+    
+        &__mision-texto p{
+            font-size: 16px;
+            width:80vw;
+            padding: 10px;
+        }
+    
+    }
+        
+
+    /*-----  LOCAL-----*/
+
+    &__locales-titulo{
+        height: 5vh;
+        background-color: $colorCuaternario;
+        text-align: center;
+        margin-top: 5%;
+    }
+    
+    &__locales-titulo h2{
+        font-size: 20px;
+        color: $colorBase;
+
+    }
+
+    &__locales-mapa{
+        display: flex;
+        justify-content: center;
+        margin: 0.5em;
+    }
+
+
+    @media (max-width: 768px) {
+        &__locales-titulo{
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        &__locales-titulo h2{
+            font-size: 50px;
+            color: $colorTipografia;
+        }
+    
+        &__locales-titulo img{
+            width: 80vw;
+            margin: 5px auto;
+        }
+
+    }
+
+    &__locales-informacion{
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        color: $colorBase;
+        background-color: $colorCuaternario;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 20px;
+        padding-left: 5%;
+        border: 2px solid $colorTipografia;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+    
+
+    @media (max-width: 768px) {
+
+        &__locales-informacion{
+            width: 90vw;
+            border: 1px solid $colorTipografia;
+            padding: 5px;
+            font-size: 16px;
+        }
+    }
+
+  
+}

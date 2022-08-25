@@ -1,0 +1,63 @@
+.section-cards {
+    background-color: $colorBase;
+    
+
+
+    &__header h1{
+        background-image: url(../../img/productos/descuentos.png);
+        background-color: $colorBase;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        padding: 3%;
+
+    
+       /*  width: 250%;
+        height: 50%;
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+        display: flex;
+        padding: 3%; */
+    }
+
+    &__header p{
+        padding: 20px;
+        font-size: 20px;
+ 
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        &__header h1{
+           font-size: 40px;
+           height: 60vh;
+           letter-spacing: 0;
+        }
+    
+        &__header p{
+            font-size: 22px;
+        }
+    }
+     
+
+}
+
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    background-color: $colorBase;
+    padding: 3em;
+
+    @media (min-width: 1200px) {
+        & {
+            gap: 2em
+        }
+    }
+}
