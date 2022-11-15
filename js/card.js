@@ -37,19 +37,19 @@ console.log(elemCardsContainer)
 const card1 = new Card(
     "Divisor de ambiente + soporte de tv",
     "Mueble de melamina de alta densidad con estructura metalica negra + soprte de tv que gira 360°",
-    "img/productos/divisor ambiente 1.jpeg"
+    "img/productos/divisor-ambiente1.jpeg"
 )
 
 const card2 = new Card(
     "Divisor de ambiente grande + soprte de tv",
     "Mueble de melamina de alta densidad con estructura metalica negra + soprte de tv que gira 360°",
-    "img/productos/divisor ambiente 2.jpeg"
+    "img/productos/divisor-ambiente2.jpeg"
 )
 
 const card3 = new Card(
     "Divisor de ambiente",
     "Mueble de melamina de alta densidad con estructura metalica negra + perchero para que cuelgues tu ropa!",
-    "img/productos/divisor ambiente 3.jpeg"
+    "img/productos/divisor-ambiente3.jpeg"
 )
 
 const card4 = new Card(
@@ -61,7 +61,7 @@ const card4 = new Card(
 const card5 = new Card(
     "Mesita de luz",
     "Mueble de melamina de alta densidad con estructura metalica negra + cajon de guardado",
-    "img/productos/mesita de luz.jpeg"
+    "img/productos/mesita-de-luz.jpeg"
 )
 
 const card6 = new Card(
@@ -73,13 +73,13 @@ const card6 = new Card(
 const card7 = new Card(
     "Rack de tv chico",
     "Mueble de melamina de alta densidad con estructura metalica negra + espacios de guardado",
-    "img/productos/Rack chico.jpeg"
+    "img/productos/Rack-chico.jpeg"
 )
 
 const card8 = new Card(
     "Rack de tv grande",
     "Mueble de melamina de alta densidad con estructura metalica negra + espacios de guardado",
-    "img/productos/Rack grande.jpeg"
+    "img/productos/Rack-grande.jpeg"
 )
 
 const card9 = new Card(
@@ -91,7 +91,7 @@ const card9 = new Card(
 const card10 = new Card(
     "Recibidor",
     "Mueble de melamina de alta densidad con estructura metalica negra",
-    "img/productos/guardado de cama.jpeg"
+    "img/productos/guardado-cama.jpeg"
 )
 
 const card11 = new Card(
@@ -139,9 +139,44 @@ const cards = [
     card12
 ]
 
+/* console.warn("-----")
+console.log(cards[0].heading)
+console.log(cards[0].image)
+console.warn("-----")
+console.log(cards[7].heading)
+console.log(cards[7].image) */
+
 console.log(cards)
 
 
-card1.appendTo(elemCardsContainer)
+/* card1.appendTo(elemCardsContainer)
+card2.appendTo(elemCardsContainer)
+card3.appendTo(elemCardsContainer)
+card4.appendTo(elemCardsContainer)
+card5.appendTo(elemCardsContainer)
+card6.appendTo(elemCardsContainer)
+card7.appendTo(elemCardsContainer)
+card8.appendTo(elemCardsContainer)
+card9.appendTo(elemCardsContainer)
+card10.appendTo(elemCardsContainer)
+card11.appendTo(elemCardsContainer)
+card12.appendTo(elemCardsContainer) */
+
+/* cards[0].appendTo(elemCardsContainer)
+cards[1].appendTo(elemCardsContainer)
+cards[2].appendTo(elemCardsContainer)
+cards[3].appendTo(elemCardsContainer)
+cards[4].appendTo(elemCardsContainer)
+cards[5].appendTo(elemCardsContainer)
+cards[6].appendTo(elemCardsContainer)
+cards[7].appendTo(elemCardsContainer)
+cards[8].appendTo(elemCardsContainer)
+cards[9].appendTo(elemCardsContainer)
+cards[10].appendTo(elemCardsContainer)
+cards[11].appendTo(elemCardsContainer) */
+
+for(const unaCard of cards) {
+    unaCard.appendTo(elemCardsContainer)
+}
 
 
