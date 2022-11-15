@@ -231,8 +231,9 @@
     &__top-bread,
     &__meat,
     &__bottom-bread {
+        color: black;
         display: block;
-        background-color: $colorBase;
+        background-color: $colorTerciario;
         height: .2em;
         position: absolute;
         left: .5em;
