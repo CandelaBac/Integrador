@@ -210,8 +210,9 @@ body {
   height: 100%;
 }
 .menu-toggle__top-bread, .menu-toggle__meat, .menu-toggle__bottom-bread {
+  color: black;
   display: block;
-  background-color: #fff8f8;
+  background-color: rgb(186, 186, 186);
   height: 0.2em;
   position: absolute;
   left: 0.5em;
@@ -355,6 +356,70 @@ body {
   .card__description {
     font-size: 14px;
   }
+}
+
+.container-alta {
+  padding: 10px;
+}
+.container-alta h2 {
+  color: blue;
+}
+.container-alta div, .container-alta input {
+  width: 300px;
+  display: block;
+  margin-bottom: 1px;
+  padding: 5px;
+}
+.container-alta button {
+  display: block;
+  margin-top: 20px;
+  width: 80px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.container-alta button:hover {
+  background-color: peru;
+}
+.container-alta input[type=checkbox] {
+  display: inline;
+  width: 15px;
+  height: 15px;
+  margin-top: 10px;
+}
+.container-alta form div {
+  border: 1px solid red;
+  background-color: yellow;
+  color: orange;
+  margin: 2px 0 10px 0;
+  border-radius: 5px;
+  display: none;
+}
+.container-alta table, .container-alta th, .container-alta td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.container-alta table {
+  width: 90%;
+}
+.container-alta #listado-productos {
+  width: 100%;
+}
+
+.section-carrito {
+  display: none;
+  position: fixed;
+  background-color: white;
+  z-index: 1;
+  top: 150px;
+  left: 150px;
+  right: 150px;
+  bottom: 150px;
+  box-shadow: 0.3em 0.3em 10em 0.3em black;
+}
+.section-carrito--visible {
+  display: block;
 }
 
 .search-bar__logo-container {

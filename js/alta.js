@@ -35,6 +35,7 @@ const algunCampoValido = () => {
 
 /* Validar campos */
 const validar = (valor, validador, index) => {
+    console.log(valor, validador, index)
     
     if(!validador.test(valor)) {
         setCustomValidityJS("Este campo no es válido", index)
@@ -91,7 +92,9 @@ form.addEventListener("submit", e => {
 
     button.disabled = true
     console.log(productos)
-    renderProdsObjetos()
+
+    //renderProdsObjetos()
+    renderProdsTemplateString()
 })
 
 
@@ -108,6 +111,46 @@ const renderProdsObjetos = () => {
 
 /* Me permite dibujar cada una de las nuevas filas de la tabla */
 const renderProdsTemplateString = () => {
+    let html = ""
+
+    html += "<table>" 
+    console.log(html)
+
+    html += `
+    <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Colores</th>
+        <th>Dimensiones</th>
+        <th>Categoria</th>
+        <th>Detalles</th>
+        <th>Foto</th>
+        <th>Envio</th>
+    </tr>
+    `
+
+    for (let i = 0; i < productos.length; i++) {
+        let producto = productos[i]
+        console.log(producto)
+        
+        /* html += `   
+        <tr>
+            <th>${producto.nombre}</th>
+            <th>${producto.precio}</th>
+            <th>${producto.colores}</th>
+            <th>${producto.dimensiones}</th>
+            <th>${producto.categoria}r</th>
+            <th>${producto.detalles}</th>
+            <th>${producto.foto}</th>
+            <th>${producto.envio}</th>
+        </tr>
+        ` */
+        
+    }
+
+    html += "</table>"
+    document.getElementById("listado-productos").innerHTML = html
+
 
 }
 

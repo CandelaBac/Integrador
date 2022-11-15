@@ -3,10 +3,27 @@ function Card(heading, description, image) {
     this.description = description
     this.image = image
 
+
+    // metodo
     this.appendTo = function (destinationElement) {
         let card = document.createElement("a")
         card.classList.add("card")
         card.href = "https://sony.com"
+
+        let that = this
+        console.log(that)
+
+        card.addEventListener("click", function(e) {
+            e.preventDefault()
+            console.log(this)
+
+            let nuevoItemCarrito = document.createElement("div")
+            nuevoItemCarrito.classList.add("carrito__item")
+            nuevoItemCarrito.innerHTML = that.heading
+            console.log(nuevoItemCarrito)
+
+            elemSectionCarrito.append(nuevoItemCarrito)
+        })
 
         card.innerHTML = `
         <article class="card__article">
@@ -97,13 +114,13 @@ const card10 = new Card(
 const card11 = new Card(
     "Biblioteca",
     "Mueble de melamina de alta densidad con estructura metalica negra, sus estantes son irregulares para aportar un mayor diseño",
-    "img/productos/biblioteca1.jpeg"
+    "img/productos/biblioteca-1.jpeg"
 )
 
 const card12 = new Card(
     "Biblioteca + vinoteca",
     "Mueble de melamina de alta densidad con estructura metalica negra, tiene la funcion de un divisor de ambientes, cuenta con espacios de guardo y una vinoteca",
-    "/img/productos/"
+    "/img/productos/biblioteca-2.jpeg"
 )    
 
 
