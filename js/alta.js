@@ -64,12 +64,44 @@ const regExpValidar = [
 
 inputs.forEach((input, index) => {
     input.addEventListener("input", () => {
-        validar(input.value, regExpValidar[index])
+        validar(input.value, regExpValidar[index], index)
     })
 })
 
+
+form.addEventListener("submit", e => {
+    e.preventDefault()
+
+    const producto = {
+        nombre: inputs[0].value,
+        precio: inputs[1].value,
+        colores: inputs[2].value,
+        dimensiones: inputs[3].value,
+        categoria: inputs[4].value,
+        detalles: inputs[5].value,
+        foto: inputs[6].value,
+        envio: inputs[7].checked
+    }
+
+    // borrar todos los input
+    inputs.forEach(input => input.value = "")
+
+    //console.log(producto)
+    productos.push(producto)
+
+    button.disabled = true
+    console.log(productos)
+    renderProdsObjetos()
+})
+
+
 /* Dibuja los productos */
 const renderProdsObjetos = () => {
+    let html = ""
+    for (let i = 0; i < productos.length; i++) {
+        html += `<p>${JSON.stringify(productos[i])}</p>`
+    }
+    document.getElementById("listado-productos").innerHTML = html
 
 }
 
