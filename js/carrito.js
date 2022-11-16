@@ -1,6 +1,14 @@
-const btnCarrito = document.getElementsByClassName("search-bar__carrito-container")[0]
+function initCarrito() {
+    console.warn("initCarrito()")
 
-btnCarrito.addEventListener("click", () => {
-    elemSectionCarrito.classList.toggle("section-carrito--visible")
+    const btnCarrito = document.getElementsByClassName("search-bar__carrito-container")[0]
 
-}) 
+    btnCarrito.addEventListener("click", () => {
+        elemSectionCarrito.classList.toggle("section-carrito--visible")
+    }) 
+}
+
+initCarrito()
+
+
+
