@@ -1,0 +1,36 @@
+{{#if productos.length}}
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Colores</th>
+        <th>Dimensiones</th>
+        <th>Categoria</th>
+        <th>Detalles</th>
+        <th>Foto</th>
+        <th>Envio</th>
+    </tr>
+
+    {{#each productos}}
+    <tr>
+        <td>{{nombre}}</td>
+        <td>{{precio}}</td>
+        <td>{{colores}}</td>
+        <td>{{dimensiones}}</td>
+        <td>{{categoria}}r</td>
+        <td>{{detalles}}</td>
+        <td>
+            <img src="{{foto}}" alt="{{nombre}}" style="display: block; margin: 0 auto;" width="50">
+        </td>
+        {{#if envio}}
+            <td>Si</td>
+        {{else}}
+            <td>No</td>
+        {{/if}}
+
+    </tr>
+    {{/each}}
+</table>
+
+{{/if}}

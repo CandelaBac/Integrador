@@ -1,4 +1,12 @@
-const productos = []
+const productos = [
+    { nombre: "Divisor de ambiente + soporte de tv", precio: "$140.000", colores:"madera - madera blanca", dimensiones:"200 x 30 x 180", categoria:"Divisor", detalles: "melamina", foto:"img/productos/divisor-ambiente1.jpeg", envio: true},
+
+    { nombre: "Mesita de luz", precio: "$140.000", colores:"madera - madera blanca", dimensiones:"200 x 30 x 180", categoria:"Divisor", detalles: "melamina", foto:"img/productos/mesita-de-luz.jpeg", envio: true},
+
+    { nombre: "Escritorio", precio: "$40.000", colores:"madera - madera blanca", dimensiones:"100 x 50 x 75", categoria:"Escritorios", detalles: "melamina", foto:"img/productos/escritorio.jpeg", envio: true}
+
+]
+
 const camposValidos = [false, false, false, false, false, false, false]
 
 const inputs = document.querySelectorAll("input")
@@ -94,7 +102,8 @@ form.addEventListener("submit", e => {
     console.log(productos)
 
     //renderProdsObjetos()
-    renderProdsTemplateString()
+    //renderProdsTemplateString()
+    renderProds()
 })
 
 
@@ -133,18 +142,18 @@ const renderProdsTemplateString = () => {
         let producto = productos[i]
         console.log(producto)
         
-        /* html += `   
+        html += `   
         <tr>
-            <th>${producto.nombre}</th>
-            <th>${producto.precio}</th>
-            <th>${producto.colores}</th>
-            <th>${producto.dimensiones}</th>
-            <th>${producto.categoria}r</th>
-            <th>${producto.detalles}</th>
-            <th>${producto.foto}</th>
-            <th>${producto.envio}</th>
+            <td>${producto.nombre}</td>
+            <td>${producto.precio}</td>
+            <td>${producto.colores}</td>
+            <td>${producto.dimensiones}</td>
+            <td>${producto.categoria}r</td>
+            <td>${producto.detalles}</td>
+            <td>${producto.foto}</td>
+            <td>${producto.envio}</td>
         </tr>
-        ` */
+        `
         
     }
 
@@ -154,3 +163,25 @@ const renderProdsTemplateString = () => {
 
 }
 
+const renderProds = () => {
+
+    const xhr = new XMLHttpRequest()
+    xhr.open("get", "plantillas/listado.hbs")
+    xhr.addEventListener("load", () => {
+        if(xhr.status === 200) {
+            let plantillasHbs = xhr.response
+            console.log(plantillasHbs)
+
+            let template = Handlebars.compile(plantillasHbs)
+            console.log(template)
+
+            let html = template({productos: productos})
+            console.log(html)
+
+            document.getElementById("")
+        }
+    })    
+
+    xhr.send()
+}
+renderProds()
