@@ -52,12 +52,11 @@ const validar = (valor, validador, index) => {
 }
 
 
-
 /* Todas las expresiones regulares de los campos */
 const regExpValidar = [
     /^.+$/, // regexp nombre
     /^.+$/, // regexp precio
-    /^[0-12]+$/, // regexp colores
+    /^.+$/, /* /^[0-12]+$/ */ // regexp colores
     /^.+$/, // regexp dimensiones
     /^.+$/, // regexp categoria
     /^.+$/, // regexp detalles
@@ -72,10 +71,10 @@ const renderProds = () => {
     xhr.addEventListener("load", () => {
         if(xhr.status === 200) {
             let plantillasHbs = xhr.response
-            console.log(plantillasHbs)
+            //console.log(plantillasHbs)
 
             let template = Handlebars.compile(plantillasHbs)
-            console.log(template)
+            //console.log(template)
         
 
             let html = template({productos: productos})
@@ -126,11 +125,12 @@ function initAlta() {
     console.warn("initAlta()")
 
     inputs = document.querySelectorAll("main form input")
+    console.log(inputs)
     form = document.querySelector("main form")
     button = document.querySelector("main form button")
     
     button.disabled = true
-    const camposValidos = [false, false, false, false, false, false, false]
+    camposValidos = [false, false, false, false, false, false, false]
 
 
     inputs.forEach((input, index) => {
@@ -144,7 +144,7 @@ function initAlta() {
     form.addEventListener("submit", e => {
         e.preventDefault()
   
-        //guardarProducto()
+        guardarProducto()
        
     })
 
