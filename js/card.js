@@ -1,4 +1,4 @@
-function initCard() {
+function initInicio() {
     console.warn("initCard()")
 
     function Card(heading, description, image) {
