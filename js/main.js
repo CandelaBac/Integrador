@@ -19,6 +19,14 @@ function start() {
         return "vistas/" + id + ".html" // "vistas/alta.html"
     }
 
+    function marcarLink(id) {
+        const links = document.querySelectorAll("header nav a")
+        links.forEach(link => {
+            if(link.id === id) link.classList.add("active")
+            else link.classList.remove("active")
+        })
+    }
+
     function initJS(id) {
         if(id = "alta") {
             initAlta()
@@ -54,12 +62,13 @@ function start() {
     }
 
 
-    const cargarPlantilla = () => {
+    const cargarPlantillas = () => {
 
         /* --------------------------------------------------------- */
         /* Carga inicial de la vista determinada por la url visitada */
         /* --------------------------------------------------------- */
         let id = location.hash.slice(1) || "inicio" // #inicio => slice(1) => inicio
+        marcarLink(id)
         cargarPlantilla(id)
 
         /* ------------------------------------------------------------- */
@@ -82,13 +91,14 @@ function start() {
             console.log("Cambio la URL")
 
             let id = location.hash.slice(1) || "inicio"
+            marcarLink(id)
             cargarPlantilla(id)
         })
 
 
     }
 
-    cargarPlantilla()
+    cargarPlantillas()
 
 }
 
