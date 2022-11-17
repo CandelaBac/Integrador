@@ -28,35 +28,8 @@ class ProductoService {
 
 }
 
+const productoService = new ProductoService()
 
 
 
-
-/* ------------------------------------ */
-/* --------------- TESTES ------------- */
-/* ------------------------------------ */
-
-/* const producto = {
-    nombre: "Divisor de ambiente + soporte de TV",
-    precio: "$140.000",
-    colores: "Madera - Madera blanca",
-    dimensiones: "200 x 30 x 180",
-     
-}
-
-console.log(producto)
-
-
-const campoEditado = {
-    ...producto,
-    precio: 456
-}
-
-console.log(campoEditado) */
-
-// guardarProdutoService(producto)
-
-// actalizarProductoService(7, producto)
-
-// borrarProductoService(1)
 
