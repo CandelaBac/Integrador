@@ -77,7 +77,10 @@ const renderProds = () => {
             //console.log(template)
         
 
-            let html = template({productos: productos})
+            let html = template({
+                productos: productos,
+                validos: !algunCampoValido()
+            })
             console.log(html)
 
             // Le agrego a la plantilla los datos de productos
@@ -144,7 +147,7 @@ function initAlta() {
     form.addEventListener("submit", e => {
         e.preventDefault()
   
-        guardarProducto()
+        guardarProducto() 
        
     })
 
