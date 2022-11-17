@@ -1,12 +1,54 @@
+class FormularioAlta {
+    inputs = null
+    form = null
+    button = null
+    camposValido = [false, false, false, false, false, false, false]
+    regExpValidar = [
+        /^.+$/, // regexp nombre
+        /^.+$/, // regexp precio
+        /^.+$/, /* /^[0-12]+$/ */ // regexp colores
+        /^.+$/, // regexp dimensiones
+        /^.+$/, // regexp categoria
+        /^.+$/, // regexp detalles
+        /^.+$/, // regexp foto
+    ]
+
+    constructor() { /* TODO Recibe dos parametros */
+        this.inputs = document.querySelectorAll("main form input")
+        this.form = document.querySelector("main form")
+        this.button = document.querySelector("main form button")
+
+        button.disabled = true
+
+        inputs.forEach((input, index) => {
+            if(input.type != "checkbox") {
+                input.addEventListener("input", () => {
+                    validar(input.value, regExpValidar[index], index)
+                })
+            }
+        })
+
+        form.addEventListener("submit", e => {
+            e.preventDefault()
+  
+            guardarProducto() /* TODO: ajustar esto */
+       
+        })
+
+        obtenerProductos()
+
+    }
+
+
+}
+
+
 
 /* ----------------------------------------------- */
 /* Declaraciones de variables y funciones globales */
 /* ----------------------------------------------- */
 
-let inputs 
-let form
-let button
-let camposValidos
+s
 
 /* Mostrar u ocultar el mensaje */
 const setCustomValidityJS = (mensaje, index) => {
@@ -53,15 +95,7 @@ const validar = (valor, validador, index) => {
 
 
 /* Todas las expresiones regulares de los campos */
-const regExpValidar = [
-    /^.+$/, // regexp nombre
-    /^.+$/, // regexp precio
-    /^.+$/, /* /^[0-12]+$/ */ // regexp colores
-    /^.+$/, // regexp dimensiones
-    /^.+$/, // regexp categoria
-    /^.+$/, // regexp detalles
-    /^.+$/, // regexp foto
-]
+
 
 // Rendereamos la plantilla
 const renderProds = () => {
@@ -127,31 +161,10 @@ function limpiarFormulario() {
 function initAlta() {
     console.warn("initAlta()")
 
-    inputs = document.querySelectorAll("main form input")
-    console.log(inputs)
-    form = document.querySelector("main form")
-    button = document.querySelector("main form button")
-    
-    button.disabled = true
     camposValidos = [false, false, false, false, false, false, false]
 
 
-    inputs.forEach((input, index) => {
-        if(input.type != "checkbox") {
-            input.addEventListener("input", () => {
-                validar(input.value, regExpValidar[index], index)
-            })
-        }
-    })
-
-    form.addEventListener("submit", e => {
-        e.preventDefault()
-  
-        guardarProducto() 
-       
-    })
-
-    obtenerProductos()
+    
 
 }
 
