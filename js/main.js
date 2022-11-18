@@ -1,27 +1,30 @@
-var elemSectionCarrito = document.getElementsByClassName("section-carrito")[0]
+var elemSectionCarrito = document.getElementsByClassName("section-carrito")[0] // TODO: REVISAR
 
-
-
-function start() {
-
-    /* ---------------------------- */
-    /*      FUNCIONES HELPERS       */
-    /* ---------------------------- */
+class Main {
 
     // AJAX
-    function ajax(url, metodo = "get") {
-        const xhr = new XMLHttpRequest()
-        xhr.open(metodo,url)
-        xhr.send()
+    async ajax(url, metodo = "get") { 
 
-        return xhr
+        try {
+            const respuesta = await fetch(url, {method: metodo})
+            const resultado = await respuesta.text()
+
+            return resultado
+
+        } catch (error) {
+            console.error(error)
+            
+        }
+
     }
 
-    function getNombreArchivo(id) {
-        return "vistas/" + id + ".html" // "vistas/alta.html"
+    
+    getNombreArchivo(id) {
+        return "vistas/" + id + ".html" 
     }
 
-    function marcarLink(id) {
+
+    marcarLink(id) {
         const links = document.querySelectorAll("header nav a")
         links.forEach(link => {
             if(link.id === id) link.classList.add("active")
@@ -29,7 +32,9 @@ function start() {
         })
     }
 
-    function initJS(id) {
+
+
+    initJS(id) {
         if(id = "alta") {
             initAlta()
         }
@@ -45,11 +50,11 @@ function start() {
     }
 
 
-    function cargarPlantilla(id) {
-        let archivo = getNombreArchivo(id)
+    async cargarPlantilla(id) {
+        let archivo = this.getNombreArchivo(id)
 
-        let xhr = ajax(archivo)
-        xhr.addEventListener("load", () => {
+        let xhr = await this.ajax(archivo)
+        xhr.addEventListener("load", () => { // TODO: Cambiar esto
             if(xhr.status === 200) {
                 let plantilla = xhr.response
 
@@ -58,50 +63,56 @@ function start() {
                 main.innerHTML = plantilla
 
                 // Carga del codigo script (JS) de la plantilla
-                initJS(id)
+                this.initJS(id)
             }
         })
     }
 
 
-    const cargarPlantillas = () => {
+
+    async cargarPlantillas() {
 
         /* --------------------------------------------------------- */
         /* Carga inicial de la vista determinada por la url visitada */
         /* --------------------------------------------------------- */
         let id = location.hash.slice(1) || "inicio" // #inicio => slice(1) => inicio
-        marcarLink(id)
-        cargarPlantilla(id)
+        this.marcarLink(id)
+        await this.cargarPlantilla(id)
 
         /* ------------------------------------------------------------- */
         /* Carga de cada uno de los contenidos según la navegacion local */
         /* ------------------------------------------------------------- */
         const links = document.querySelectorAll("header nav a")
-        console.log(links)
+        //console.log(links)
 
         links.forEach(link => {
             link.addEventListener("click", e => {
                 e.preventDefault()
 
                 let id = link.id
-                console.log(id)
+                //console.log(id)
                 location.hash = id
             })
         })
 
-        window.addEventListener("hashchange", () => {
-            console.log("Cambio la URL")
+        window.addEventListener("hashchange", async () => {
+            //console.log("Cambio la URL")
 
             let id = location.hash.slice(1) || "inicio"
-            marcarLink(id)
-            cargarPlantilla(id)
+            this.marcarLink(id)
+            await this.cargarPlantilla(id)
         })
 
 
     }
 
-    cargarPlantillas()
+    async start() {
+        await this.cargarPlantillas()
+    
+    }
+
 
 }
 
-start()
+const main = new Main()
+main.start()
