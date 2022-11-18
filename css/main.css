@@ -382,6 +382,9 @@ body {
 .container-alta button:hover {
   background-color: peru;
 }
+.container-alta button:disabled {
+  background-color: red;
+}
 .container-alta input[type=checkbox] {
   display: inline;
   width: 15px;

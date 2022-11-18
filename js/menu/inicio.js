@@ -4,10 +4,11 @@ async function renderPlantillaListado(listado) {
 
         const respuesta = await fetch("plantillas/inicio.hbs")
         const plantillaHbs = await respuesta.text()
+        console.log(plantillaHbs)
         const template = Handlebars.compile(plantillaHbs)
 
         const html = template ({listado})
-
+        
         document.getElementsByClassName("cards-container")[0].innerHTML = html
         
     } catch (error) {
