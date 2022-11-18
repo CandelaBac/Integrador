@@ -29,24 +29,10 @@ function initInicio() {
             })
     
             card.innerHTML = `
-            <article class="card__article">
-                <div class="card__image-container">
-                    <img class="card__image" 
-                    src= ${image}
-                    alt= ${heading}
-                    />
-                </div>
-                <div class="card__content">
-                    <h2 class="card__heading">${heading}</h2>
-                <div class="card__description">
-                    <p>${description}</p>
-                </div>
-            </article>`
+            `
     
             destinationElement.appendChild(card)
-    
         }
-    
     
     }
     
