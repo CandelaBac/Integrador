@@ -1,4 +1,5 @@
-var elemSectionCarrito = document.getElementsByClassName("section-carrito")[0] // TODO: REVISAR
+var elemSectionCarrito = document.getElementsByClassName("section-carrito")[0] 
+
 
 class Main {
 
@@ -52,20 +53,16 @@ class Main {
 
     async cargarPlantilla(id) {
         let archivo = this.getNombreArchivo(id)
+        
+        let plantilla = await this.ajax(archivo)
 
-        let xhr = await this.ajax(archivo)
-        xhr.addEventListener("load", () => { // TODO: Cambiar esto
-            if(xhr.status === 200) {
-                let plantilla = xhr.response
+        // Carga del codigo de la vista (HTML) de la plantilla
+        let main = document.querySelector("main")
+        main.innerHTML = plantilla
 
-                // Carga del codigo de la vista (HTML) de la plantilla
-                let main = document.querySelector("main")
-                main.innerHTML = plantilla
-
-                // Carga del codigo script (JS) de la plantilla
-                this.initJS(id)
-            }
-        })
+        // Carga del codigo script (JS) de la plantilla
+        this.initJS(id)
+        
     }
 
 

@@ -4,24 +4,24 @@ class ProductoService {
     
 
     async obtenerProductosService() {
-        let productos = await get (this.URL_PRODUCTOS)
+        let productos = await http.get (this.URL_PRODUCTOS)
         return productos
     
     }
     
     async guardarProdutoService(producto) {
-        const productoGuardado = await post(this.URL_PRODUCTOS, producto)
+        const productoGuardado = await  http.post(this.URL_PRODUCTOS, producto)
         //console.log(productoGuardado)
         return productoGuardado
     }
     
     async actalizarProductoService(id, producto) {
-        const productoActualizado = await put(this.URL_PRODUCTOS, id, producto)
+        const productoActualizado = await  http.put(this.URL_PRODUCTOS, id, producto)
         return productoActualizado
     }
     
     async borrarProductoService(id) {
-        const productoBorrado = await del(this.URL_PRODUCTOS, id)
+        const productoBorrado = await  http.del(this.URL_PRODUCTOS, id)
         return productoBorrado
     }
 
