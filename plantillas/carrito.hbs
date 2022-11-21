@@ -1,4 +1,4 @@
-{{#if producto.length}}
+{{#if carrito.length}}
     <button class="btn__enviarCarrito">Enviar</button>
     <table>
         <tr>
@@ -8,8 +8,10 @@
             <th>Foto</th>
             <th>Dimensiones</th>
             <th>Envio</th>
-            <th>Acciones</th>
+            <th>Accion</th>
         </tr>
+
+        {{#each carrito}}
         <tr>
             <td>{{nombre}}</td>
             <td>{{precio}}</td>
@@ -25,9 +27,11 @@
                 <td>No</td>
             {{/if}}       
             <td>
-                <button>borrar</button>
+                <button onclick="carritoController.borrarProductoCarrito{{id}}">borrar</button>
             </td>
         </tr>
+        {{/each}}
+
     </table>
 {{else}}
     <h2>El carrito esta vacio</h2>    

@@ -18,7 +18,14 @@ async function renderPlantillaListado(listado) {
 
 }
 
-function agregarCarrito(){ // TODO: trabajar metodo agregar carrito
+function agregarCarrito(e, id, ref){ 
+    e.preventDefault()
+    //console.log(id)
+    //console.log(ref)
+
+    const producto = productoController.productos.find(producto => producto.id == id)
+    //console.log(producto)
+    carritoController.agregarCarrito(producto)
 
 }
 
