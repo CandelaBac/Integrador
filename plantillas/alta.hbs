@@ -1,27 +1,25 @@
 {{#if productos.length}}
-
 <table>
     <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Colores</th>
-        <th>Dimensiones</th>
-        <th>Categoria</th>
-        <th>Detalles</th>
-        <th>Foto</th>
-        <th>Envio</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Colores</th>
+            <th>Dimensiones</th>
+            <th>Categoría</th>
+            <th>Detalles</th>
+            <th>Foto</th>
+            <th>Envío</th>
     </tr>
-
     {{#each productos}}
     <tr>
         <td>{{nombre}}</td>
         <td>{{precio}}</td>
         <td>{{colores}}</td>
         <td>{{dimensiones}}</td>
-        <td>{{categoria}}r</td>
+        <td>{{categoria}}</td>
         <td>{{detalles}}</td>
         <td>
-            <img src="{{foto}}" alt="{{nombre}}" style="display: block; margin: 0 auto;" width="50">
+            <img src="{{foto}}" alt="{{nombre}}" style="display:block; margin: 0 auto;" width="50">
         </td>
         {{#if envio}}
             <td>Si</td>
@@ -29,7 +27,7 @@
             <td>No</td>
         {{/if}}
         <td>
-            {{#if ../validos}}
+            {{#if ../validos}} 
                 <button onclick="productoController.actualizarProducto({{id}})">Actualizar</button>
             {{else}}
                 <button disabled onclick="productoController.actualizarProducto({{id}})">Actualizar</button>
@@ -38,9 +36,7 @@
         <td>
             <button onclick="productoController.borrarProducto({{id}})">Borrar</button>
         </td>
-
     </tr>
     {{/each}}
 </table>
-
 {{/if}}

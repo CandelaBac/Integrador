@@ -21,7 +21,7 @@ function agregarCarrito(e, id, ref) {
     //console.log(ref)
 
     const producto = productoController.productos.find(producto => producto.id == id)
-    carritoController.AgregarAlCarrito(producto)
+    carritoController.agregarAlCarrito(producto)
 }
 
 async function initInicio() {
