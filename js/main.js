@@ -1,84 +1,75 @@
 class Main {
 
     // AJAX
-    async ajax(url, metodo = "get") { 
+    async ajax(url, metodo = 'get') { 
 
         try {
             const respuesta = await fetch(url, {method: metodo})
             const resultado = await respuesta.text()
-
             return resultado
-
+            
         } catch (error) {
             console.error(error)
-            
         }
-
+        
     }
-    
+
     getNombreArchivo(id) {
-        return "vistas/" + id + ".html" 
+        return 'vistas/' + id + '.html' 
     }
 
     marcarLink(id) {
-        const links = document.querySelectorAll("header nav a")
-        links.forEach(link => {
-            if(link.id === id) link.classList.add("active")
-            else link.classList.remove("active")
+        const links = document.querySelectorAll('header nav a')
+        links.forEach( link => {
+            if(link.id === id) link.classList.add('active')
+            else link.classList.remove('active')
         })
     }
 
-
-
     initJS(id) {
-        if(id = "alta") {
+        if( id === 'alta' ) {
             initAlta()
         }
-        else if (id === "inicio") {
+        else if( id === 'inicio' ) {
             initInicio()
         }
-        else if (id === "nosotros") {
+        else if( id === 'nosotros' ) {
             initNosotros()
         }
-        else if (id === "contacto") {
+        else if( id === 'contacto' ) {
             initContacto()
         }
     }
 
-
     async cargarPlantilla(id) {
         let archivo = this.getNombreArchivo(id)
-        
+
         let plantilla = await this.ajax(archivo)
 
-        // Carga del codigo de la vista (HTML) de la plantilla
-        let main = document.querySelector("main")
+        // Carga del código de la vista (HTML) de la platilla
+        let main = document.querySelector('main')
         main.innerHTML = plantilla
 
-        // Carga del codigo script (JS) de la plantilla
+        // Carga dle código script (JS) de la plantilla
         this.initJS(id)
-        
     }
 
-
-
     async cargarPlantillas() {
-
         /* --------------------------------------------------------- */
-        /* Carga inicial de la vista determinada por la url visitada */
+        /* Carga inicial de la vista deteminada por la url visitada  */
         /* --------------------------------------------------------- */
-        let id = location.hash.slice(1) || "inicio" // #inicio => slice(1) => inicio
+        let id = location.hash.slice(1) || 'inicio' // #inicio => slice(1) => inicio
         this.marcarLink(id)
         await this.cargarPlantilla(id)
 
         /* ------------------------------------------------------------- */
-        /* Carga de cada uno de los contenidos según la navegacion local */
+        /* Carga de cada uno de los contenidos según la navegación local */
         /* ------------------------------------------------------------- */
-        const links = document.querySelectorAll("header nav a")
+        const links = document.querySelectorAll('header nav a')
         //console.log(links)
 
         links.forEach(link => {
-            link.addEventListener("click", e => {
+            link.addEventListener('click', e => {
                 e.preventDefault()
 
                 let id = link.id
@@ -87,23 +78,19 @@ class Main {
             })
         })
 
-        window.addEventListener("hashchange", async () => {
-            //console.log("Cambio la URL")
+        window.addEventListener('hashchange', async () => {
+            // console.log('Cambió la URL')
 
-            let id = location.hash.slice(1) || "inicio"
+            let id = location.hash.slice(1) || 'inicio'
             this.marcarLink(id)
             await this.cargarPlantilla(id)
         })
-
-
     }
 
     async start() {
         await this.cargarPlantillas()
-    
     }
-
-
+   
 }
 
 const main = new Main()

@@ -2,7 +2,7 @@ class FormularioAlta {
     inputs = null
     form = null
     button = null
-    camposValido = [false, false, false, false, false, false, false]
+    camposValidos = [false, false, false, false, false, false, false]
     regExpValidar = [
         /^.+$/, // regexp nombre
         /^.+$/, // regexp precio
@@ -14,34 +14,32 @@ class FormularioAlta {
     ]
 
 
-    constructor(renderTablaAlta, guardarProducto) { 
-        //console.log(renderTablaAlta, guardarProducto) // referencias de las funciones
+    constructor(renderTablaAlta, guardarProducto) {
+        // console.log(renderTablaAlta, guardarProducto) // Referencias de las funciones
         this.inputs = document.querySelectorAll("main form input")
         this.form = document.querySelector("main form")
         this.button = document.querySelector("main form button")
-
+    
         this.button.disabled = true
-
+    
         this.inputs.forEach((input, index) => {
-            if(input.type != "checkbox") {
-                input.addEventListener("input", () => {
-                   this.validar(input.value, this.regExpValidar[index], index)
-                   if(renderTablaAlta) renderTablaAlta (!this.algunCampoValido(), productoController.productos)
-                })
-            }
+          if (input.type != "checkbox") {
+            input.addEventListener("input", () => {
+              this.validar(input.value, this.regExpValidar[index], index)
+              if (renderTablaAlta) renderTablaAlta(!this.algunCampoValido(), productoController.productos)
+            })
+          }
         })
-
+    
         this.form.addEventListener("submit", (e) => {
-            e.preventDefault()
-
-            const producto = this.leerProductoIngresado()
-            this.limpiarFormulario()
-
-            if(guardarProducto) guardarProducto(producto)
-       
+          e.preventDefault()
+    
+          const producto = this.leerProductoIngresado()
+          this.limpiarFormulario()
+    
+          if(guardarProducto) guardarProducto(producto)
         })
-
-    }
+      }
 
 
     /* Para comprobar la validez de los campos */
@@ -96,46 +94,43 @@ class FormularioAlta {
             categoria: this.inputs[4].value,
             detalles: this.inputs[5].value,
             foto: this.inputs[6].value,
-            envio: this.inputs[7].checked,
+            envio: this.inputs[7].checked
             
         }
     }
 
     // Limpiamos los inputs del formulario
-    limpiarFormulario() {
-
-        // borro todos los inputs
-        this.inputs.forEach(input => {
-            if(input.type != "checkbox") input.value = ""
-            else if(input.type == "checkbox") input.checked = false
+    cleanForm = () => {
+        this.inputs.forEach((input) => {
+            if (input.type != 'checkbox') input.value = ''
+            else if (input.type==='checkbox') input.checked=false
         })
-
-        this.button.disabled = true
-        this.camposValidos = [false, false, false, false, false, false, false]
+    
+        this.btn.disabled=true
+        this.camposValidos = [false,false,false,false,false,false,false]
     }
-
 }
 
 
 // Rendereamos la plantilla
 const renderTablaAlta = (validos, productos) => {
-    
+  
     const xhr = new XMLHttpRequest()
-    xhr.open("get", "plantillas/alta.hbs") 
+    xhr.open("get", "plantillas/alta.hbs")
     xhr.addEventListener("load", () => {
-        if(xhr.status === 200) {
-            let plantillasHbs = xhr.response
-            
-            let template = Handlebars.compile(plantillasHbs)
-
-            console.warn(productos)
-            let html = template({productos, validos})
-            document.getElementById("listado-productos").innerHTML = html
-        }
-    })    
-
+      if (xhr.status === 200) {
+        let plantillaHbs = xhr.response
+  
+        let template = Handlebars.compile(plantillaHbs)
+  
+        // console.warn(productos)
+        let html = template({ productos, validos })
+        document.getElementById("listado-productos").innerHTML = html
+      }
+    })
+  
     xhr.send()
-}
+  }
 
 
 
@@ -146,15 +141,12 @@ const renderTablaAlta = (validos, productos) => {
 
 let formularioAlta = null
 
-
-
 async function initAlta() {
-    console.warn("initAlta()")
+  console.warn("initAlta()")
 
-    formularioAlta = new FormularioAlta(renderTablaAlta, productoController.guardarProducto)
+  formularioAlta = new FormularioAlta(renderTablaAlta, productoController.guardarProducto)
 
-    const productos = await productoController.obtenerProductos()
-    renderTablaAlta(null, productos)
-
+  const productos = await productoController.obtenerProductos()
+  renderTablaAlta(null, productos)
 }
 
