@@ -6,7 +6,7 @@ class FormularioAlta {
     regExpValidar = [
         /^.+$/, // regexp nombre
         /^.+$/, // regexp precio
-        /^[0-9]+$/, // regexp colores
+        /^.+$/, // /^[0-9]+$/, // regexp colores
         /^.+$/, // regexp dimensiones
         /^.+$/, // regexp categoria
         /^.+$/, // regexp detalles

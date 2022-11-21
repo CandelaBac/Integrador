@@ -4,7 +4,7 @@ class CarritoController extends CarritoModel {
         super()
 
         try {
-            
+            //console.log(JSON.parse(localStorage.getItem("carrito")))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || []
 
         } catch (error) {
@@ -60,16 +60,16 @@ class CarritoController extends CarritoModel {
     }
 
 
-    async EnviarCarrito() {
+    async enviarCarrito() {
 
         try {
 
             const elemSectionCarrito = document.getElementsByClassName("section-carrito")[0]
 
             elemSectionCarrito.innerHTML = "<h2>Enviando carrito...</h2>"
-            await carritoService.guardarCarritoService(this.carrito)
+            await carritoService.guardarCarritoServicio(this.carrito)
             this.carrito = []
-            localStorage.setItem("carrito", this.carrito)
+            localStorage.setItem("carrito", JSON.stringify(this.carrito))
 
             elemSectionCarrito.innerHTML = "<h2>Enviando carrito <b>OK!</b> </h2>"
             

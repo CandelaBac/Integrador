@@ -1,6 +1,3 @@
-var elemSectionCarrito = document.getElementsByClassName("section-carrito")[0] 
-
-
 class Main {
 
     // AJAX
@@ -18,12 +15,10 @@ class Main {
         }
 
     }
-
     
     getNombreArchivo(id) {
         return "vistas/" + id + ".html" 
     }
-
 
     marcarLink(id) {
         const links = document.querySelectorAll("header nav a")
