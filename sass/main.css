@@ -310,6 +310,11 @@ body {
   box-shadow: 5px 5px 20px rgba(4, 4, 4, 0.479);
   transform: translateY(-3%);
 }
+
+.card::before {
+  content: "Agregar al carrito";
+}
+
 @media (max-width: 768px) {
   .card {
     width: 150px;
