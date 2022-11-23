@@ -311,6 +311,7 @@ body {
   transform: translateY(-3%);
 }
 
+
 .card::before {
   content: "Agregar al carrito";
 }

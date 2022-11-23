@@ -1,32 +1,109 @@
+.nosotros-section__header h1 {
+    text-align: center;
+    display: block;
+    font-size: 2em;
+    font-weight: bold
+}
+
 .container-alta {
     padding: 10px;
 
+    form {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        flex-direction: column;
+        margin-left: 15vw;
+        margin-right: 15vw;
+        border: 2px solid $colorTipografia;
+        margin-top: 20px; 
+        margin-bottom: 5%; 
+        width: 60vw;
+
+        & input, & label {
+            font-size: 20px;
+            font-weight: 400;
+            width: 50vw;
+
+        }
+        
+        & label:not(#label-envio){
+            &::after {
+            content: ' *';
+            color: crimson;
+            }
+        }
+
+        }
+
+        & #envio, #label-envio{
+            width: 100px;
+        }
+
     h2 {
-        color: blue;
+        color: white;
+        font-size: 30px;
+        text-transform: uppercase;
+        background-color: $colorPrimario;
+        padding: 10px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+
+
+    }
+
+
+
+    h3 {
+        color: white;
+        font-size: 30px;
+        text-transform: uppercase;
+        background-color: $colorPrimario;
+        padding: 10px;
+        margin-bottom: 10px;
+
+        @media (max-width: 768px) {
+            &{
+                width: 110%;
+                padding: 5px;
+                margin-left: 30px;
+            
+            }
+        }
     }
 
     div, input {
         width: 300px;
         display: block;
-        margin-bottom: 1px;
+        margin-bottom: 10px;
         padding: 5px;
+
     }
 
     button {
+        justify-content: flex-start;
         display: block;
-        margin-top: 20px;
-        width: 80px;
+        margin-top: 25px;
+        width: 150px;
+        height: 40px;
         background-color: black;
         color: white;
         cursor: pointer;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
 
         &:hover {
-            background-color: peru;
+            background-color: $colorPrimario;
         }
 
         &:disabled {
-            background-color: red;
+            background-color: black;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            &{
+                margin-left:70px ;
+            }
         }
     }
 
@@ -35,7 +112,18 @@
         display: inline;
         width: 15px;
         height: 15px;
-        margin-top: 10px;
+        margin-top: -20px;
+        margin-right: 350px;
+
+        @media (max-width: 768px) {
+            &{
+                margin-left:350px ;
+            }
+        }
+    }
+
+    form button {
+        margin-right: 68%;
     }
 
     form div {
@@ -53,11 +141,32 @@
         border-collapse: collapse;
     }
 
+    th {
+        font-size: larger;
+    }
+
+    td {
+        padding: 5px;
+
+        & button {
+            width: auto;
+            font-size: 12px;
+        }
+    }
+
     table {
         width: 90%;
+        margin: 10px;
     }
 
     #listado-productos {
-        width: 100%;
+        width: 110%;
+
+        @media (max-width: 768px) {
+            &{
+                margin-left: 20px;
+
+            }
+        }
     }
 }

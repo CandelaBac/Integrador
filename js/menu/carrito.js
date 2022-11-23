@@ -1,5 +1,6 @@
 let mostrarCarrito = false
 
+
 async function renderTablaCarrito(carrito) {
     //console.log(carrito)
     
@@ -21,7 +22,7 @@ async function renderTablaCarrito(carrito) {
 
 }
 
-function initCarrito() {
+function initCarrito(){
     console.warn('initCarrito()')
 
     const btnCarrito = document.getElementsByClassName('search-bar__carrito-container')[0]
@@ -42,9 +43,86 @@ function initCarrito() {
         }
         
     })
+
 }
 
 initCarrito()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* function initCarrito() {
+    console.warn('initCarrito()')
+
+    const btnCarrito = document.getElementsByClassName('search-bar__carrito-container')[0]
+    const elemSectionCarrito = document.getElementsByClassName('section-carrito')[0]
+
+    btnCarrito.addEventListener('click', async () => {
+        mostrarCarrito = !mostrarCarrito
+
+        try {
+            if(mostrarCarrito) {
+                await renderTablaCarrito(carritoController.carrito)
+                if(!carritoController.carrito.length){
+                  elemSectionCarrito.classList.add('section-carrito--visible--vacio')
+                }
+                bloqueoNavBar.classList.add('__bloqueo')
+                bloqueoSecCards.classList.add('__bloqueo')
+                bloqueoBotNavBar.classList.add('__bloqueo')
+                body.classList.add('__stop-scroll')
+            } else {
+                elemSectionCarrito.classList.remove('section-carrito--visible')
+            }
+
+        } catch (error) {
+            console.error(error)
+        }
+
+        cerrarCarrito()
+        
+    })
+
+    function cerrarCarrito(){
+        const elemSectionCarrito = document.getElementsByClassName('section-carrito')[0]
+        const cerrarCarrito = document.querySelector("#cerrar-carrito") 
+        cerrarCarrito.addEventListener("click", () => {
+        mostrarCarrito = !mostrarCarrito
+        elemSectionCarrito.classList.remove('section-carrito--visible')
+        bloqueoNavBar.classList.remove('__bloqueo')
+        bloqueoSecCards.classList.remove('__bloqueo')
+        bloqueoBotNavBar.classList.remove('__bloqueo')
+        body.classList.remove('__stop-scroll')
+      })
+      }
+
+    
+}
+
+
+initCarrito() */
 
 
 

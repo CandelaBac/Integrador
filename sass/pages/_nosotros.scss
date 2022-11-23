@@ -5,26 +5,14 @@
     }
 }
 
+.nosotros-section__mision-texto h2 {
+    background-color: $colorPrimario;
+    color: white;
+    width: 100%;
+}
+
 .nosotros-section{
-
-     /*----- NOSOTROS HEADER -----*/
-
-     
-    &__header h1{
-        font-size: 20px;
-        color:$colorBase;
-        background-color: $colorCuaternario;
-        letter-spacing: 5px;
-        height: 6vh;
-        /* background-image: url(../../img/otras-img/nosotros-img.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 50%; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 3%; 
-    }
+  
 
     &__header p {
         font-size: 22px;
@@ -48,8 +36,6 @@
     
     }
 
-    /*----- NOSOTROS MISIÓN -----*/
-
     &__mision{
         display: flex;
         margin-top: 10px;
@@ -64,7 +50,7 @@
     }
     &__mision-texto h2{
         margin-right: 550px;
-        color: $colorTipografia;
+        color: white;
         font-size: 30px;
         padding: 10px;
     }
@@ -102,14 +88,15 @@
 
     &__locales-titulo{
         height: 5vh;
-        background-color: $colorCuaternario;
-        text-align: center;
+        background-color: $colorPrimario;
         margin-top: 5%;
+        padding-left: 10px;
+        padding-top: 5px;
     }
     
     &__locales-titulo h2{
         font-size: 20px;
-        color: $colorBase;
+        color: white;
 
     }
 
@@ -142,17 +129,17 @@
     &__locales-informacion{
         display: flex;
         flex-direction: column;
-        width: 60vw;
+        width: 78vw;
         color: $colorBase;
-        background-color: $colorCuaternario;
+        background-color: $colorPrimario;
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
         margin-bottom: 10px;
-        padding: 20px;
-        padding-left: 5%;
-        border: 2px solid $colorTipografia;
-        border-radius: 5px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        padding-left: 10px;
+        padding-right: 20px;
         font-size: 18px;
     }
     
