@@ -59,7 +59,7 @@ class FormularioAlta {
       //console.log(valor, validador, index)
   
       if (!validador.test(valor)) {
-        this.setCustomValidityJS("Este campo no es válido", index)
+        this.setCustomValidityJS(`<i class="fas fa-exclamation-triangle"></i> Este campo no es válido`, index)
         this.camposValidos[index] = false
         this.button.disabled = true
         return null // break

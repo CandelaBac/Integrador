@@ -540,10 +540,14 @@ body {
   margin-left: 5%;
 }
 .section-carrito .btn {
+  width: 70%;
+  text-align: center;
+  margin-right: 15%;
+  margin-left: 85px;
   font-size: 25px;
   color: white;
-  padding: 8px;
-  margin: 5px;
+  padding: 5;
+  margin: 5;
   cursor: pointer;
   background-color: white;
   text-transform: uppercase;
@@ -658,24 +662,6 @@ body {
 
 .active {
   font-weight: bold;
-}
-
-.__bloqueo {
-  -moz-opacity: 0.3;
-  -khtml-opacity: 0.3;
-  opacity: 0.3;
-  background-color: black;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  filter: blur(4px);
-}
-
-.__stop-scroll {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
 }
 
 .search-bar__logo-container {

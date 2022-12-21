@@ -1,40 +1,42 @@
 class ProductoController extends ProductoModel {
     
-    constructor() {
-        super() 
+    constructor(){
+        super()
         this.guardarProducto = this.guardarProducto.bind(this)
     }
 
-    async obtenerProductos() { 
+        
+    async obtenerProductos() {
         this.productos = await productoService.obtenerProductosService()
         return this.productos
     }
-    
+
     async guardarProducto(producto) {
+
         const productoGuardado = await productoService.guardarProductoService(producto)
         //console.log(productoGuardado)
-    
+
         this.productos.push(productoGuardado)
-    
+
         renderTablaAlta(null, this.productos)
     }
-    
-    async actualizarProducto(id) { 
+
+    async actualizarProducto(id){
         console.log('actualizarProducto', id)
-    
+
         const producto = formularioAlta.leerProductoIngresado()
         formularioAlta.limpiarFormulario()
-    
-        const productoActualizado = await productoService.actualizarProductoService(id, producto)
-        // console.log(productoActualizado)
-    
-        const index = this.productos.findIndex(producto => producto.id == productoActualizado.id)
-        this.productos.splice(index,1,productoActualizado)
-    
+
+        const productoActulizado = await productoService.actualizarProductoService(id, producto)
+        //console.log(productoActulizado)
+
+        const index = this.productos.findIndex(producto => producto.id == productoActulizado.id)
+        this.productos.splice(index,1,productoActulizado)
+
         renderTablaAlta(null, this.productos)
-    
-    } 
-    
+
+    }
+
     async borrarProducto(id) { 
         console.log('borrarProducto', id)
     
@@ -45,6 +47,7 @@ class ProductoController extends ProductoModel {
     
         renderTablaAlta(null, this.productos)
     }
+
 }
 
 const productoController = new ProductoController()
